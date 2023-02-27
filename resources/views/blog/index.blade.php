@@ -36,6 +36,7 @@
                                         <li class="text-danger">Aucun article de blog disponible</li>
                                 @endforelse
                             </ul>
+                            {{ $blogs }}
                         </div>
                     </div>
                 </div>

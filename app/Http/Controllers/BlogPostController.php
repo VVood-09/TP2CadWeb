@@ -18,7 +18,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $blogs = BlogPost::all();
+        $blogs = BlogPost::select()->paginate(5);
         return view('blog.index', ['blogs'=>$blogs]);
         //return $blogs[0]->title;
     }

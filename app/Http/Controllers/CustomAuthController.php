@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Etudiant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -50,6 +51,10 @@ class CustomAuthController extends Controller
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
+
+        $etudiant = new Etudiant;
+        $etudiant->users_id = $user->id;
+        $etudiant->save();
 
         $to_name    = $request->name;
         $to_email   = $request->email;
