@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center mt-2">
+        <div class="col-12 text-center mt-2 pt-5">
             <h1 class="display-one ">
                 Ajouter un article
             </h1>
@@ -26,15 +26,6 @@
                         <div class="control-group col-12">
                             <label for="body">Message</label>
                             <textarea name="body" id="body" class="form-control"></textarea>
-                        </div>
-                        <div class="control-group col-12">
-                            <label for="category">Category</label>
-                            <select name="categorys_id" id="category" class="form-control">
-                                <option value="">Select category</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->category }}</option>
-                                @endforeach
-                            </select>
                         </div>
                     </div>
                     <div class="card-footer">

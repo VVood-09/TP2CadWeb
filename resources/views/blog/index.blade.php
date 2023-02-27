@@ -9,15 +9,10 @@
                 </h1>
                 <hr>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <p>
                             @lang('lang.reading_title')
                         </p>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="{{ route('blog.create')}}" class="btn btn-outline-primary">
-                            @lang('lang.add_post')
-                        </a>
                     </div>
                 </div>
                 <hr>
@@ -26,20 +21,25 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            Liste des articles
+                            @lang('lang.blogList')
                         </div>
                         <div class="card-body">
                             <ul>
                                 @forelse($blogs as $blog)
                                         <li><a href="{{ route('blog.show', $blog->id)}}">{{ $blog->title }}</a></li>
                                 @empty
-                                        <li class="text-danger">Aucun article de blog disponible</li>
+                                        <li class="text-danger">@lang('lang.blogUnvavail')</li>
                                 @endforelse
                             </ul>
                             {{ $blogs }}
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <a href="{{ route('blog.create')}}" class="btn btn-primary">
+                    @lang('lang.add_post')
+                </a>
             </div>
         </div>
     </div>

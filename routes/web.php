@@ -26,12 +26,6 @@ Route::get('blog-edit/{blogPost}', [BlogPostController::class, 'edit'])->name('b
 Route::put('blog-edit/{blogPost}', [BlogPostController::class, 'update'])->middleware('auth');
 Route::delete('blog-edit/{blogPost}', [BlogPostController::class, 'destroy'])->middleware('auth');
 
-Route::get('/blog/{blogPost}/pdf', [BlogPostController::class, 'pdf'])->name('blog.pdf')->middleware('auth');
-
-//test eloquent
-Route::get('query', [BlogPostController::class, 'query']);
-Route::get('page', [BlogPostController::class, 'page']);
-
 use App\Http\Controllers\CustomAuthController;
 
 Route::get('registration', [CustomAuthController::class, 'create'])->name('user.create');

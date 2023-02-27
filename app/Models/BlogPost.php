@@ -19,19 +19,18 @@ class BlogPost extends Model
         'title',
         'body',
         'user_id',
-        'categorys_id'
     ];
 
     public function blogHasUser(){
         return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
-    public function blogHasCategory(){
-        $lang = session()->get('localeDB');
+    // public function blogHasCategory(){
+    //     $lang = session()->get('localeDB');
 
-        return $this->hasOne('App\Models\Category', 'id', 'categorys_id')->select('id', 
-        DB::raw("(case when category$lang is null then category else category$lang end) as category")
-        );
-    }
+    //     return $this->hasOne('App\Models\Category', 'id', 'categorys_id')->select('id', 
+    //     DB::raw("(case when category$lang is null then category else category$lang end) as category")
+    //     );
+    // }
 
     /*public function selectUser(){
         return $this->Select(DB::raw('concat(fistname, " ", lastName) as name'))

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name')}} : @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}">
-    <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet">
+    {{-- <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet"> --}}
 </head>
 <body>
     {{-- Request::server('HTTP_ACCEPT_LANGUAGE') --}}
 @php $locale = session()->get('locale'); @endphp
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">@lang('lang.greet') @if(Auth::check()) {{Auth::user()->name }} @else @lang('lang.guest') @endif</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

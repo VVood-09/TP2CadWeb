@@ -30,14 +30,14 @@ class BlogPostController extends Controller
      */
     public function create()
     {   
-        $category =  new Category;
-        $category = $category->selectCategory();
+        // $category =  new Category;
+        // $category = $category->selectCategory();
 
         // $category =  Category::selectCategory();
 
        // return  $category;
 
-        return view('blog.create', ['categories' => $category]);
+        return view('blog.create');
     }
 
     /**
@@ -54,7 +54,6 @@ class BlogPostController extends Controller
                 'title' => $request->title,
                 'body'  => $request->body,
                 'user_id' => Auth::user()->id,
-                'categorys_id' => $request->categorys_id
             ]);
 
             return redirect(route('blog.show', $newPost->id));
@@ -81,10 +80,8 @@ class BlogPostController extends Controller
      */
     public function edit(BlogPost $blogPost)
     {
-        $category =  Category::selectCategory();
 
-        return view('blog.edit', ['blogPost' => $blogPost, 
-                                'categories' => $category]);
+        return view('blog.edit', ['blogPost' => $blogPost]);
     }
 
     /**
@@ -117,14 +114,5 @@ class BlogPostController extends Controller
         $blogPost->delete();
 
         return redirect(route('blog.index'));
-    }
-
-    public function pdf(BlogPost $blogPost){
-
-        $pdf = PDF::loadView('blog.show-pdf', ['blogPost' => $blogPost]);
-        $nomPdf = "article_".$blogPost->id.".pdf";
-
-        return $pdf->stream($nomPdf);
-        // return $pdf->download($nomPdf);
     }
 }
