@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,21 +13,22 @@
 @php $locale = session()->get('locale'); @endphp
     <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Hello @if(Auth::check()) {{Auth::user()->name }} @else Guest @endif</a>
+        <a class="navbar-brand" href="#">@lang('lang.greet') @if(Auth::check()) {{Auth::user()->name }} @else @lang('lang.guest') @endif</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             @guest
-                <a class="nav-link" href="{{route('user.create')}}">Registration</a>
-                <a class="nav-link" href="{{route('login')}}">Login</a>
+                <a class="nav-link" href="{{route('user.create')}}">@lang('lang.registration')</a>
+                <a class="nav-link" href="{{route('login')}}">@lang('lang.login')</a>
             @else
-                <a class="nav-link" href="{{route('blog.index')}}">Blogs</a>
-                <a class="nav-link" href="{{route('logout')}}">Logout</a>  
+                <a class="nav-link" href="{{route('blog.index')}}">@lang('lang.blogPath')</a>
+                <a class="nav-link" href="{{route('logout')}}">@lang('lang.logout')</a>  
             @endguest
-            <a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}"><i class="flag flag-united-states"></i></a>
-            <a class="nav-link {{ $locale =='fr' ? 'bg-secondary' : '' }}" href="{{route('lang', 'fr')}}"><i class="flag flag-france"></i></a>
+            {{-- <span class="ms-xxl-auto"></span> --}}
+            <a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}">En</a>
+            <a class="nav-link {{ $locale =='fr' ? 'bg-secondary' : '' }}" href="{{route('lang', 'fr')}}">Fr</a>
         </div>
         </div>
     </div>

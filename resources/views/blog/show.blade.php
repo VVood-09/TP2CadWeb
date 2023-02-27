@@ -4,21 +4,21 @@
 <div class="container">
     <div class="row">
         <div class="col-12 pt-2">
-            <a href="{{ route('blog.index') }}" class="btn btn-outline-primary btn-sm">Retouner</a>
+            <a href="{{ route('blog.index') }}" class="btn btn-outline-primary btn-sm">@lang('lang.back')</a>
             <h4 class="display-one mt-2">
                 {{ $blogPost->title }}
             </h4>
             <hr>
             <p> {!! $blogPost->body !!}</p>
-            <p><strong>Category:</strong> @isset($blogPost->blogHasCategory->category) {{ $blogPost->blogHasCategory->category }} @endisset</p>
-            <p><strong>Author:</strong> {{ $blogPost->blogHasUser->name}}</p>
+            <p><strong>@lang('lang.blogCat') : </strong> @isset($blogPost->blogHasCategory->category) {{ $blogPost->blogHasCategory->category }} @endisset</p>
+            <p><strong>@lang('lang.blogAuthor') : </strong> {{ $blogPost->blogHasUser->name}}</p>
             <hr>
         </div>
     </div>
     @if( $blogPost->user_id === Auth::user()->id )
     <div class="row text-center mb-2">
       <div class="col-4">
-        <a href="{{route('blog.edit', $blogPost->id)}}" class="btn btn-success">Mettre a jour</a>
+        <a href="{{route('blog.edit', $blogPost->id)}}" class="btn btn-success">@lang('lang.update')</a>
       </div>
       <div class="col-4">
         <a href="{{route('blog.pdf', $blogPost->id)}}" class="btn btn-warning">PDF</a>
