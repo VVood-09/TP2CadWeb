@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\BlogPost;
-
 class DocumentController extends Controller
 {
     /**
@@ -20,9 +18,9 @@ class DocumentController extends Controller
     {
         $lang = session()->get('localeDB');
 
-        $blogs = BlogPost::select('id', DB::raw("(case when title$lang is null then title else title$lang end) as title"))->paginate(5);
+        $docs = Document::select('id', DB::raw("(case when title$lang is null then title else title$lang end) as title"))->paginate(5);
         
-        return view('doc.index', ['blogs'=>$blogs]);
+        return view('doc.index', ['docs'=>$docs]);
     }
 
     /**

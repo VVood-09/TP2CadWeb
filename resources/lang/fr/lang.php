@@ -35,5 +35,9 @@ return [
     'welcome'           => 'Bienvenue',
     'catchPhraseOut'    => 'Bienvenue sur le site social du collège. Commencez par vous inscrire ou vous connectez si vous êtes déjà enregistrer.',
     'catchPhraseIn'     => 'Vous pouvez cliquer sur les liens ci-dessous pour accèder aux services.',
+    'topDoc'            => 'Documents des étudiants',
+    'listDoc'           => 'Liste des documents',
+    'docUnvavail'       => 'Aucun documents disponible.',
+    'add_doc'           => 'Ajouter un document',
 ];
 

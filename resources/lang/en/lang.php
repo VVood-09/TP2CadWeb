@@ -35,5 +35,9 @@ return [
     'welcome'           => 'Welcome',
     'catchPhraseOut'    => 'Welcome on the college social website. Start by login in or registering.',
     'catchPhraseIn'     => 'You can click on the links below to access services.',
+    'topDoc'            => 'Students documents',
+    'listDoc'           => 'List of documents',
+    'docUnvavail'       => 'No documents available.',
+    'add_doc'           => 'Add document',
 ];
 
