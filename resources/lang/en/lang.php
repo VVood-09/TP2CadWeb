@@ -31,6 +31,9 @@ return [
     'body'              => 'Content',
     'addArticle'        => 'Add an article',
     'updateArticle'     => 'Update an article',
-    'titleCreateBlog'   => 'Add'
+    'titleCreateBlog'   => 'Add',
+    'welcome'           => 'Welcome',
+    'catchPhraseOut'    => 'Welcome on the college social website. Start by login in or registering.',
+    'catchPhraseIn'     => 'You can click on the links below to access services.',
 ];
 

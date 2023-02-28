@@ -32,5 +32,8 @@ return [
     'addArticle'        => 'Ajouter un article',
     'updateArticle'     => 'Mettre à jour un article',
     'titleCreateBlog'   => 'Ajouter',
+    'welcome'           => 'Bienvenue',
+    'catchPhraseOut'    => 'Bienvenue sur le site social du collège. Commencez par vous inscrire ou vous connectez si vous êtes déjà enregistrer.',
+    'catchPhraseIn'     => 'Vous pouvez cliquer sur les liens ci-dessous pour accèder aux services.',
 ];
 
