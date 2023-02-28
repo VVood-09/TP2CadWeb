@@ -25,5 +25,11 @@ return [
     'placeholderName'   => 'Name',
     'placeholderEmail'  => 'Email',
     'placeholderPW'     => 'Password',
+    'frenchF'           => 'French form',
+    'englishF'          => 'English form',
+    'title'             => 'Title',
+    'body'              => 'Content',
+    'addArticle'        => 'Add an article',
+    'titleCreateBlog'   => 'Add'
 ];
 

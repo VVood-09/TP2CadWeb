@@ -25,5 +25,11 @@ return [
     'placeholderName'   => 'Nom',
     'placeholderEmail'  => 'Courriel',
     'placeholderPW'     => 'Mot de passe',
+    'frenchF'           => 'Formulaire français',
+    'englishF'          => 'Formulaire anglais',
+    'title'             => 'Titre',
+    'body'              => 'Contenu',
+    'addArticle'        => 'Ajouter un article',
+    'titleCreateBlog'   => 'Ajouter'
 ];
 

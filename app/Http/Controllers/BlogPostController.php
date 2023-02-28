@@ -18,7 +18,10 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $blogs = BlogPost::select()->paginate(5);
+        $lang = session()->get('localeDB');
+
+        $blogs = BlogPost::select('id', DB::raw("(case when title$lang is null then title else title$lang end) as title"))->paginate(5);
+        
         return view('blog.index', ['blogs'=>$blogs]);
     }
 
@@ -40,14 +43,22 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
-            $newPost = BlogPost::create([
-                'title' => $request->title,
-                'body'  => $request->body,
-                'user_id' => Auth::user()->id,
-            ]);
+        $request->validate([
+            'title' => 'required',
+            'title_fr'=> 'required',
+            'body' => 'required',
+            'body_fr' => 'required'
+        ]);
 
-            return redirect(route('blog.show', $newPost->id));
+       $newPost = BlogPost::create([
+           'title' => $request->title,
+           'body'  => $request->body,
+           'title_fr' => $request->title_fr,
+           'body_fr'  => $request->body_fr,
+           'user_id' => Auth::user()->id,
+       ]);
 
+       return redirect(route('blog.show', $newPost->id));
     }
 
     /**
@@ -58,6 +69,17 @@ class BlogPostController extends Controller
      */
     public function show(BlogPost $blogPost)
     {
+        // var_dump($blogPost); die();
+
+        $lang = session()->get('localeDB');
+
+        if('title'.$lang != null){
+            $blogPost->title = $blogPost['title'.$lang];
+        }
+        if('body'.$lang != null){
+            $blogPost->body = $blogPost['body'.$lang];
+        }
+
         return view('blog.show', ['blogPost' => $blogPost]);
     }
 
@@ -82,9 +104,18 @@ class BlogPostController extends Controller
      */
     public function update(Request $request, BlogPost $blogPost)
     {
+        $request->validate([
+            'title' => 'required',
+            'title_fr'=> 'required',
+            'body' => 'required',
+            'body_fr' => 'required'
+        ]);
+
         $blogPost->update([
             'title' => $request->title,
-            'body' => $request->body
+            'body' => $request->body,
+            'title_fr' => $request->title_fr,
+            'body_fr' => $request->body_fr
         ]);
 
         return redirect(route('blog.show', $blogPost->id));
