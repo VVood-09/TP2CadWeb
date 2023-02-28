@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Enregistrer')
+@section('title', __('lang.registration'))
 @section('content')
 <main class="login-form">
     <div class="container">
@@ -43,7 +43,7 @@
                                 @endif
                             </div>
                             <div class="d-grid mx-auto">
-                                <input type="submit" value="@lang('lang.save')" class="btn btn-dark btn-block">
+                                <input type="submit" value="@lang('lang.save')" class="btn btn-primary">
                             </div>
                         </form>
                     </div>

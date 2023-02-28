@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Blog List')
+@section('title', __('lang.blogPath'))
 @section('content')
 <div class="container">
         <div class="row">

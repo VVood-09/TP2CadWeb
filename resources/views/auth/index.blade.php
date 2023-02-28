@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Login')
+@section('title', __('lang.login'))
 @section('content')
 <main class="login-form">
     <div class="container">
@@ -27,7 +27,7 @@
                         </div>
                         @endif
 
-                        <form action="{{route('user.auth')}}" method="post">
+                        <form action="{{route('user.auth')}}" method="post" class="mb-2">
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="email" placeholder="@lang('lang.placeholderEmail')" class="form-control" name="email" value="{{ old('email')}}">
@@ -46,7 +46,7 @@
                                 @endif
                             </div>
                             <div class="d-grid mx-auto">
-                                <input type="submit" value="@lang('lang.login')" class="btn btn-dark btn-block">
+                                <input type="submit" value="@lang('lang.login')" class="btn btn-primary">
                             </div>
                         </form>
                         <a href="{{ route('forgot.pass') }}">@lang('lang.forgotPW')</a>

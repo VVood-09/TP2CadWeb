@@ -132,16 +132,7 @@ class CustomAuthController extends Controller
      
          Auth::login($user, $request->get('remember'));
 
-         return redirect()->intended('dashboard')->withSuccess('Signed in');
-    }
-
-    public function dashboard(){
-
-        
-        if(Auth::check()){
-           return view('dashboard'); 
-        }
-        return redirect(route('login'))->withErrors('Vous n\'êtes pas autorisé à accéder');
+         return redirect()->intended('blog');
     }
 
     public function logout(){
@@ -157,37 +148,6 @@ class CustomAuthController extends Controller
     }
 
     public function tempPassword(Request $request){
-        // $request->validate([
-        //     'email'=> 'required|email|unique:users'
-        // ]);
-
-        // // $user = User::where('email', $request->email)->get();
-
-        // // if (User::where('email', $request->email)->exists()) {
-        //     $user = User::where('email', $request->email)->get();
-        //     $user = $user[0];
-        //     $userId=$user->id;
-        //     $tempPass= str::random(25);
-        //     $user->temp_password = $tempPass;
-        //     $user->save();
-
-        //     $link="<a href='/new-password/".$userId."/".$tempPass."'>Cliquez ici pour réinitialiser votre mot de passe</a>";
-
-        //     $to_name = $user->name;
-        //     $to_email = $request->email;
-
-        //     Mail::send('email.mail', $data =[
-        //             'name'=>$to_name,
-        //             'body' => $body
-        //         ],
-        //         function($message) use ($to_name, $to_email){
-        //             $message->to($to_email, $to_name)->subject(
-        //             'Réinitialiser le mot de passe');
-        //         }
-        //     );
-        //         return redirect()->back()->withSuccess('Merci de consulter votre emails');
-        // }
-        // return redirect()->back()->withErrors('l\'utilisateur n\'existe pas ');
 
         $request->validate([
             'email'=> 'required|email|exists:users',

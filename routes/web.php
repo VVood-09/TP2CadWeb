@@ -34,8 +34,6 @@ Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('login', [CustomAuthController::class, 'authentication'])->name('user.auth');
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
 
-Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
-
 use App\Http\Controllers\LocalizationController;
 Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 
