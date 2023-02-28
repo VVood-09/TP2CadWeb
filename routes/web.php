@@ -41,3 +41,13 @@ Route::get('forgot-password', [CustomAuthController::class, 'forgotPassword'])->
 Route::post('forgot-password', [CustomAuthController::class, 'tempPassword'])->name('temp.password');
 Route::get('new-password/{user}/{tempPassword}', [CustomAuthController::class,'newPassword'])->name('new.pass');
 Route::post('new-password/{user}/{tempPassword}', [CustomAuthController::class,'storeNewPassword']);
+
+use App\Http\Controllers\DocumentController ;
+
+Route::get('document', [DocumentController::class, 'index'])->name('document.index')->middleware('auth');
+Route::get('document/{blogPost}', [DocumentController::class, 'show'])->name('document.show')->middleware('auth');
+Route::get('document-create', [DocumentController::class, 'create'])->name('document.create')->middleware('auth');
+Route::post('document-create', [DocumentController::class, 'store'])->name('document.store')->middleware('auth');
+Route::get('document-edit/{blogPost}', [DocumentController::class, 'edit'])->name('document.edit')->middleware('auth');
+Route::put('document-edit/{blogPost}', [DocumentController::class, 'update'])->middleware('auth');
+Route::delete('document-edit/{blogPost}', [DocumentController::class, 'destroy'])->middleware('auth');

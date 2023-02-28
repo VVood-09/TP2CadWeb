@@ -18,13 +18,17 @@
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                 <div class="navbar-nav col-12 justify-content-between">
                     @guest
-                    <a class="nav-link" href="{{route('user.create')}}">@lang('lang.registration')</a>
+                    <span></span>
                     @else
-                    <a class="nav-link" href="{{route('blog.index')}}">@lang('lang.blogPath')</a>
+                    <div class="d-flex">
+                        <a class="nav-link" href="{{route('blog.index')}}">@lang('lang.blogPath')</a>
+                        <a class="nav-link" href="{{route('document.index')}}">Document</a>
+                    </div>
                     @endguest
                     <div class="d-flex">
                         @guest
                         <a class="nav-link" href="{{route('login')}}">@lang('lang.login')</a>
+                        <a class="nav-link" href="{{route('user.create')}}">@lang('lang.registration')</a>
                         @else
                         <a class="nav-link" href="{{route('logout')}}">@lang('lang.logout')</a>  
                         @endguest
