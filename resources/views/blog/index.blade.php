@@ -17,7 +17,7 @@
                 </div>
                 <hr>
             </div>
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -36,10 +36,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <a href="{{ route('blog.create')}}" class="btn btn-primary">
-                    @lang('lang.add_post')
-                </a>
+        </div>
+        <div class="row text-center mt-4">
+            <div class="col-4">
+                <a href="{{ route('blog.create')}}" class="btn btn-primary">@lang('lang.add_post')</a>
             </div>
         </div>
     </div>

@@ -65,7 +65,14 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="@lang('lang.save')" class="btn btn-success mt-4">
+            <div class="row text-center mt-4">
+                <div class="col-4">
+                    <a href="{{ route('blog.index') }}" class="btn btn-primary">@lang('lang.back')</a>
+                </div>
+                <div class="col-4">
+                    <input type="submit" value="@lang('lang.save')" class="btn btn-success">
+                </div>
+            </div>
         </form>
     </div>
 </div>

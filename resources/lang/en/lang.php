@@ -30,6 +30,7 @@ return [
     'title'             => 'Title',
     'body'              => 'Content',
     'addArticle'        => 'Add an article',
+    'updateArticle'     => 'Update an article',
     'titleCreateBlog'   => 'Add'
 ];
 

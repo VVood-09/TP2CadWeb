@@ -13,7 +13,7 @@
         <hr>
       </div>
     </div>
-    <div class="row text-center mb-2">
+    <div class="row text-center mt-4">
       <div class="col-4">
         <a href="{{ route('blog.index') }}" class="btn btn-primary">@lang('lang.back')</a>
       </div>
