@@ -15,20 +15,22 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                <div class="navbar-nav col-12 justify-content-between">
                     @guest
                     <a class="nav-link" href="{{route('user.create')}}">@lang('lang.registration')</a>
                     @else
                     <a class="nav-link" href="{{route('blog.index')}}">@lang('lang.blogPath')</a>
                     @endguest
-                    @guest
-                    <a class="nav-link" href="{{route('login')}}">@lang('lang.login')</a>
-                    @else
-                    <a class="nav-link" href="{{route('logout')}}">@lang('lang.logout')</a>  
-                    @endguest
-                    <a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}">En</a>
-                    <a class="nav-link {{ $locale =='fr' ? 'bg-secondary' : '' }}" href="{{route('lang', 'fr')}}">Fr</a>
+                    <div class="d-flex">
+                        @guest
+                        <a class="nav-link" href="{{route('login')}}">@lang('lang.login')</a>
+                        @else
+                        <a class="nav-link" href="{{route('logout')}}">@lang('lang.logout')</a>  
+                        @endguest
+                            <a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}">En</a>
+                            <a class="nav-link {{ $locale =='fr' ? 'bg-secondary' : '' }}" href="{{route('lang', 'fr')}}">Fr</a>
+                    </div>
                 </div>
             </div>
         </div>
