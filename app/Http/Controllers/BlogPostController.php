@@ -20,7 +20,6 @@ class BlogPostController extends Controller
     {
         $blogs = BlogPost::select()->paginate(5);
         return view('blog.index', ['blogs'=>$blogs]);
-        //return $blogs[0]->title;
     }
 
     /**
@@ -30,13 +29,6 @@ class BlogPostController extends Controller
      */
     public function create()
     {   
-        // $category =  new Category;
-        // $category = $category->selectCategory();
-
-        // $category =  Category::selectCategory();
-
-       // return  $category;
-
         return view('blog.create');
     }
 
@@ -48,8 +40,6 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
-
-            //insert -> lastid  => select where lastId
             $newPost = BlogPost::create([
                 'title' => $request->title,
                 'body'  => $request->body,
@@ -68,7 +58,6 @@ class BlogPostController extends Controller
      */
     public function show(BlogPost $blogPost)
     {
-           //select * from blog_posts where id = $blogPost" 
         return view('blog.show', ['blogPost' => $blogPost]);
     }
 
@@ -93,7 +82,6 @@ class BlogPostController extends Controller
      */
     public function update(Request $request, BlogPost $blogPost)
     {
-        //update where blogPost->id  => select where blogPost->id
         $blogPost->update([
             'title' => $request->title,
             'body' => $request->body

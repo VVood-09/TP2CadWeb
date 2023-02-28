@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
 
-    dashboard
+<strong> {{session('success')}}</strong> 
 
 @endsection
 
