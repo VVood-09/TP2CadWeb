@@ -44,5 +44,7 @@ return [
     'doc_title'           => 'Titre lorsque vu en anglais',
     'doc_title_fr'           => 'Titre lorsque vu en français',
     'dload'             => 'Téléchargement',
+    'docAuthor'             => 'Soumit par',
+    'updateDoc'             => 'Mettre à jour un document',
 ];
 

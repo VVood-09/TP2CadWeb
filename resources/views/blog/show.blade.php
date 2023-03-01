@@ -9,7 +9,7 @@
         </h4>
         <hr>
         <p> {!! $blogPost->body !!}</p>
-        <p><strong>@lang('lang.blogAuthor') : </strong> {{ $blogPost->blogHasUser->name}}</p>
+        <p>@lang('lang.blogAuthor') : <strong>{{ $blogPost->blogHasUser->name}}</strong></p>
         <hr>
       </div>
     </div>

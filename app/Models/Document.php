@@ -14,10 +14,10 @@ class Document extends Model
         'file',
         'title',
         'title_fr',
-        'user_id',
+        'users_id',
     ];
 
-    public function blogHasUser(){
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
+    public function docHasUser(){
+        return $this->hasOne('App\Models\User', 'id', 'users_id');
     }
 }

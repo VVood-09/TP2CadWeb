@@ -44,5 +44,7 @@ return [
     'doc_title'           => 'Title when shown in english',
     'doc_title_fr'           => 'Title when shown in french',
     'dload'             => 'Download',
+    'docAuthor'             => 'Submitted by',
+    'updateDoc'             => 'Update a document',
 ];
 

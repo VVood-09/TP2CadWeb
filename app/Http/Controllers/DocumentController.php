@@ -82,7 +82,7 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        //
+        return view('doc.edit', ['document' => $document]);
     }
 
     /**
@@ -94,7 +94,19 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        //
+        // $request->validate([
+        //     'title' => 'required',
+        //     'title_fr'=> 'required',
+        //     'body' => 'required',
+        //     'body_fr' => 'required'
+        // ]);
+
+        $document->update([
+            'title' => $request->title,
+            'title_fr' => $request->title_fr,
+        ]);
+
+        return redirect(route('document.index'));
     }
 
     /**
