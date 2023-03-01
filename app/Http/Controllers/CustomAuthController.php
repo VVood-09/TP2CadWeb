@@ -142,66 +142,66 @@ class CustomAuthController extends Controller
         return redirect(route('login'));
     }
 
-    public function forgotPassword(){
+    // public function forgotPassword(){
 
-        return view('auth.forgot-password');
-    }
+    //     return view('auth.forgot-password');
+    // }
 
-    public function tempPassword(Request $request){
+    // public function tempPassword(Request $request){
 
-        $request->validate([
-            'email'=> 'required|email|exists:users',
-        ]);
+    //     $request->validate([
+    //         'email'=> 'required|email|exists:users',
+    //     ]);
 
-        $user = User::where('email', $request->email)->get();
-        $user = $user[0];
-        $tempPass = str::random(25);
-        $user->temp_password = $tempPass;
-        $user->save();
-        $userId = $user->id;
+    //     $user = User::where('email', $request->email)->get();
+    //     $user = $user[0];
+    //     $tempPass = str::random(25);
+    //     $user->temp_password = $tempPass;
+    //     $user->save();
+    //     $userId = $user->id;
 
         
-        //http://localhost:8000/new-password/23/ORar0RQHfrzkoqWFSLSyXedrt
-        // return $link;
+    //     //http://localhost:8000/new-password/23/ORar0RQHfrzkoqWFSLSyXedrt
+    //     // return $link;
         
-        $to_name = $user->name;
-        $to_email = $request->email;
-        $link = "<a href='http://localhost:5050/new-password/".$userId."/".$tempPass."'>Cliquez ici pour réinitialiser votre mot de passe</a>";
+    //     $to_name = $user->name;
+    //     $to_email = $request->email;
+    //     $link = "<a href='http://localhost:5050/new-password/".$userId."/".$tempPass."'>Cliquez ici pour réinitialiser votre mot de passe</a>";
 
-        Mail::send('email.mail', $data =[
-                'name'=>$to_name,
-                'body' => $link
-            ],
-            function($message) use ($to_name, $to_email){
-                $message->to($to_email, $to_name)->subject(
-                'Réinitialiser le mot de passe');
-            }
-        );
-        return redirect()->back()->withSuccess('Merci de consulter votre emails');
+    //     Mail::send('email.mail', $data =[
+    //             'name'=>$to_name,
+    //             'body' => $link
+    //         ],
+    //         function($message) use ($to_name, $to_email){
+    //             $message->to($to_email, $to_name)->subject(
+    //             'Réinitialiser le mot de passe');
+    //         }
+    //     );
+    //     return redirect()->back()->withSuccess('Merci de consulter votre emails');
 
-        // }
-        // return redirect()->back()->withErrors('l\'utilisateur n\'existe pas ');
-    }
+    //     // }
+    //     // return redirect()->back()->withErrors('l\'utilisateur n\'existe pas ');
+    // }
 
-    public function newPassword(User $user, $tempPassword){
-        if ($user->temp_password === $tempPassword) {
-            return view ('auth.new-password');
-        }
-        return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas ');
-    }
+    // public function newPassword(User $user, $tempPassword){
+    //     if ($user->temp_password === $tempPassword) {
+    //         return view ('auth.new-password');
+    //     }
+    //     return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas ');
+    // }
 
-    public function storeNewPassword(User $user, $tempPassword, Request $request){
-        if ($user->temp_password === $tempPassword) {
-            $request->validate([
-                'password' => 'required|min:6|confirmed',
-            ]);
-            $user->temp_password = null;
-            $user->password = Hash::make($request->password);
-            $user->save();
-            return redirect(route('login'))->withSuccess('Connectez-vous pour valider le nouveau mot de passe.'); // trans('lang.msg_success')
-        }
-        return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas ');
-    }
+    // public function storeNewPassword(User $user, $tempPassword, Request $request){
+    //     if ($user->temp_password === $tempPassword) {
+    //         $request->validate([
+    //             'password' => 'required|min:6|confirmed',
+    //         ]);
+    //         $user->temp_password = null;
+    //         $user->password = Hash::make($request->password);
+    //         $user->save();
+    //         return redirect(route('login'))->withSuccess('Connectez-vous pour valider le nouveau mot de passe.'); // trans('lang.msg_success')
+    //     }
+    //     return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas ');
+    // }
 
     
 }

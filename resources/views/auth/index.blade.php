@@ -49,7 +49,7 @@
                                 <input type="submit" value="@lang('lang.login')" class="btn btn-primary">
                             </div>
                         </form>
-                        <a href="{{ route('forgot.pass') }}">@lang('lang.forgotPW')</a>
+                        {{-- <a href="{{ route('forgot.pass') }}">@lang('lang.forgotPW')</a> --}}
                     </div>
                 </div>
             </div>
