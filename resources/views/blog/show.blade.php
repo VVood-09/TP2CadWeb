@@ -49,7 +49,7 @@
         <form action="{{ route('blog.edit', $blogPost->id)}}" method="post">
                 @csrf
                 @method('delete')
-            <input type="submit" class="btn btn-danger" value="Effacer">
+            <input type="submit" class="btn btn-danger" value="@lang('lang.delete')">
         </form>
       </div>
     </div>

@@ -45,9 +45,9 @@ Route::post('new-password/{user}/{tempPassword}', [CustomAuthController::class,'
 use App\Http\Controllers\DocumentController ;
 
 Route::get('document', [DocumentController::class, 'index'])->name('document.index')->middleware('auth');
-Route::get('document/{blogPost}', [DocumentController::class, 'show'])->name('document.show')->middleware('auth');
 Route::get('document-create', [DocumentController::class, 'create'])->name('document.create')->middleware('auth');
 Route::post('document-create', [DocumentController::class, 'store'])->name('document.store')->middleware('auth');
 Route::get('document-edit/{blogPost}', [DocumentController::class, 'edit'])->name('document.edit')->middleware('auth');
 Route::put('document-edit/{blogPost}', [DocumentController::class, 'update'])->middleware('auth');
-Route::delete('document-edit/{blogPost}', [DocumentController::class, 'destroy'])->middleware('auth');
+Route::delete('document/{document}', [DocumentController::class, 'destroy'])->name('document.delete')->middleware('auth');
+Route::get('document-download/{file}', [DocumentController::class, 'download'])->name('document.download')->middleware('auth');

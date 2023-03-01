@@ -43,5 +43,6 @@ return [
     'doc_name'           => 'Document name for download and upload',
     'doc_title'           => 'Title when shown in english',
     'doc_title_fr'           => 'Title when shown in french',
+    'dload'             => 'Download',
 ];
 

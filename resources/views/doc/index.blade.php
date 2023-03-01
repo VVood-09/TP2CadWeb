@@ -18,8 +18,20 @@
                         <div class="card-body">
                             <ul>
                                 @forelse($docs as $doc)
-                                        <li>{{ $doc->title }}</a></li>
-                                        
+                                        <li class="col-12 justify-content-between d-flex">
+                                            <p>{{ $doc->title }}</p>
+                                            <div class="d-flex">
+                                                <a href="{{ route('document.download', $doc->file)}}" class="btn btn-success">@lang('lang.dload')</a>
+                                                @if($doc->users_id === Auth::user()->id)
+                                                <form action="{{ route('document.delete', $doc->id)}}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <input type="submit" class="btn btn-danger" value="@lang('lang.delete')">
+                                                </form>
+                                                @endif
+                                            </div>
+                                        </li>
+                                        <hr>
                                 @empty
                                         <li class="text-danger">@lang('lang.docUnvavail')</li>
                                 @endforelse

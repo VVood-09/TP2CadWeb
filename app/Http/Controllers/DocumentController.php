@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * Tutoriel suivit pour la gestion de fichier, téléchargement et téléversement
+ * https://www.youtube.com/watch?v=IYswY0Jgup4
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Stroage;
 
 class DocumentController extends Controller
 {
@@ -19,7 +24,7 @@ class DocumentController extends Controller
     {
         $lang = session()->get('localeDB');
 
-        $docs = Document::select('id', DB::raw("(case when title$lang is null then title else title$lang end) as title"))->paginate(5);
+        $docs = Document::select('id', 'file', 'users_id', DB::raw("(case when title$lang is null then title else title$lang end) as title"))->paginate(5);
         
         return view('doc.index', ['docs'=>$docs]);
     }
@@ -56,8 +61,6 @@ class DocumentController extends Controller
         $data->save();
 
         return redirect(route('document.index'));
-
-        // https://www.youtube.com/watch?v=IYswY0Jgup4
     }
 
     /**
@@ -102,20 +105,12 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        //
+        $document->delete();
+
+        return redirect(route('document.index'));
     }
 
-    public function download(){
-        $filename = $request->input('filename');
-    
-        $file = File::where('user_id', Auth::id())
-            ->where('filename', $filename)
-            ->firstOrFail();
-    
-        $path = Storage::path('public/assets/documents/' . $filename);
-    
-        if(Storage::exists($path)){
-            return Response::download($path, $filename);
-        }
+    public function download(Request $request, $file){
+        return response()->download(public_path('assets/'.$file));
     }
 }

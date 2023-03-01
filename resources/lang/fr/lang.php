@@ -43,5 +43,6 @@ return [
     'doc_name'           => 'Nom du document pour le téléversement et téléchargement',
     'doc_title'           => 'Titre lorsque vu en anglais',
     'doc_title_fr'           => 'Titre lorsque vu en français',
+    'dload'             => 'Téléchargement',
 ];
 
