@@ -58,6 +58,7 @@ class DocumentController extends Controller
 
         $file = $request->file;
         $filename = time().'.'.$file->getClientOriginalExtension();
+        // Chemin pour WebDev /home/e2295393/www/tp2cw/public/assets
         $request->file->move('assets', $filename);
         
         $data->file = $filename;
