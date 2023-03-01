@@ -42,7 +42,7 @@ class CustomAuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|between:2,50',
             'email'=> 'required|email|unique:users',
             'password' => 'required|min:6|max:20'
         ]);

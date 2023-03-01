@@ -42,10 +42,10 @@ class BlogPostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'title_fr'=> 'required',
-            'body' => 'required',
-            'body_fr' => 'required'
+            'title' => 'required|between:4,100',
+            'title_fr'=> 'required|between:4,100',
+            'body' => 'required|between:10,1000',
+            'body_fr' => 'required|between:10,1000'
         ]);
 
        $newPost = BlogPost::create([
@@ -103,10 +103,10 @@ class BlogPostController extends Controller
     public function update(Request $request, BlogPost $blogPost)
     {
         $request->validate([
-            'title' => 'required',
-            'title_fr'=> 'required',
-            'body' => 'required',
-            'body_fr' => 'required'
+            'title' => 'required|between:4,100',
+            'title_fr'=> 'required|between:4,100',
+            'body' => 'required|between:10,1000',
+            'body_fr' => 'required|between:10,1000'
         ]);
 
         $blogPost->update([

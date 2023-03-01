@@ -47,6 +47,13 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required|between:2,50',
+            'title_fr'=> 'required|between:2,50',
+            'file'  => 'required|mimes:pdf,docx,doc,zip'
+        ]);
+
         $data = new Document;
 
         $file = $request->file;
@@ -94,12 +101,10 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'title_fr'=> 'required',
-        //     'body' => 'required',
-        //     'body_fr' => 'required'
-        // ]);
+        $request->validate([
+            'title' => 'required|between:2,50',
+            'title_fr'=> 'required|between:2,50',
+        ]);
 
         $document->update([
             'title' => $request->title,

@@ -23,7 +23,7 @@
                                             <div class="d-flex">
                                                     <a href="{{ route('document.download', $doc->file)}}" class="btn btn-success">@lang('lang.dload')</a>
                                                     @if($doc->users_id === Auth::user()->id)
-                                                    <a href="{{route('document.edit', $doc->id)}}" class="btn btn-primary">@lang('lang.update')</a>
+                                                    <a href="{{route('document.edit', $doc->id)}}" class="btn btn-primary ms-3">@lang('lang.update')</a>
                                                     @endif
                                             </div>
                                         </li>
