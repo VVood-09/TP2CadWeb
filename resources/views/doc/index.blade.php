@@ -18,7 +18,8 @@
                         <div class="card-body">
                             <ul>
                                 @forelse($docs as $doc)
-                                        <li>{{ $doc->title }}</li>
+                                        <li>{{ $doc->title }}</a></li>
+                                        
                                 @empty
                                         <li class="text-danger">@lang('lang.docUnvavail')</li>
                                 @endforelse

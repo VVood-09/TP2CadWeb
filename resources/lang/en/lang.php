@@ -10,6 +10,7 @@ return [
     'login'         => 'Login',
     'logout'        => 'Logout',
     'blogPath'      => 'Blogs',
+    'doc_form'      => 'Document form',
     'msg_1'         => 'User recorded, check your mail.',
     'blogAuthor'    => 'Author',
     'blogList'      => 'List of articles',
@@ -39,5 +40,8 @@ return [
     'listDoc'           => 'List of documents',
     'docUnvavail'       => 'No documents available.',
     'add_doc'           => 'Add document',
+    'doc_name'           => 'Document name for download and upload',
+    'doc_title'           => 'Title when shown in english',
+    'doc_title_fr'           => 'Title when shown in french',
 ];
 

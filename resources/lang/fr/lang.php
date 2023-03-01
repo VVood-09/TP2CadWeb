@@ -39,5 +39,9 @@ return [
     'listDoc'           => 'Liste des documents',
     'docUnvavail'       => 'Aucun documents disponible.',
     'add_doc'           => 'Ajouter un document',
+    'doc_form'          => 'Formulaire pour document',
+    'doc_name'           => 'Nom du document pour le téléversement et téléchargement',
+    'doc_title'           => 'Titre lorsque vu en anglais',
+    'doc_title_fr'           => 'Titre lorsque vu en français',
 ];
 
